@@ -1,0 +1,17 @@
+///////////////////////////////////////////////////////////
+//
+//   display
+//
+///////////////////////////////////////////////////////////
+
+@use "../setting/variables" as *;
+@use "../foundation/mixins" as *;
+
+$breakpoints: xxl, xl, lg, md, sm;
+$display-types: none, block;
+
+@each $breakpoint in $breakpoints {
+  @each $display-type in $display-types {
+    @include display-helper($breakpoint, $display-type);
+  }
+}

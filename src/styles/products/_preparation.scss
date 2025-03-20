@@ -1,0 +1,28 @@
+///////////////////////////////////////////////////////////
+//
+//   preparation
+//
+///////////////////////////////////////////////////////////
+
+@charset "utf-8";
+@use "../../styles/setting/variables.scss" as *;
+@use "../../styles/foundation/mixins.scss" as *;
+@use "../../styles/foundation/functions.scss" as *;
+
+.p-preparation {
+  display: grid;
+  place-items: center;
+}
+
+.p-preparation__inner {
+  text-align: center;
+}
+
+.p-preparation__title {
+  font-size: clamp_size(30, 60);
+  font-weight: 700;
+}
+
+.p-preparation__text {
+  margin-top: 2em;
+}

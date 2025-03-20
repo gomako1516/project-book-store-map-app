@@ -1,0 +1,12 @@
+
+///////////////////////////////////////////////////////////
+// heading
+///////////////////////////////////////////////////////////
+
+@use "../setting/variables" as *;
+@use "../foundation/mixins" as *;
+@use "../foundation/functions" as *;
+
+.c-heading {
+  font-size: clamp_size(18, 24);
+}

@@ -1,0 +1,67 @@
+///////////////////////////////////////////////////////////
+//
+//   List
+//
+///////////////////////////////////////////////////////////
+
+@charset "utf-8";
+@use "../../styles/setting/variables.scss" as *;
+@use "../../styles/foundation/mixins.scss" as *;
+@use "../../styles/foundation/functions.scss" as *;
+
+.list {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: clamp_size(20,30,768,1440);
+}
+
+.shopResult {
+  font-weight: 600;
+}
+
+.shopList {
+  display: grid;
+  gap: 5rem 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+  grid-template-rows: min-content;
+  @include mq-down(sm) {
+    grid-template-columns: auto;
+  }
+}
+
+.shopItem {
+  display: grid;
+  gap: .5rem;
+  grid-template-rows: auto auto auto 1fr;
+}
+
+.shopItem__thumb {
+  img {
+    width: 100%;
+    aspect-ratio: 350/210;
+    object-fit: cover;
+  }
+}
+
+.shopItem__name {
+  font-size: clamp_size(16, 18);
+  font-weight: 600;
+}
+
+
+.shopItem__link {
+  margin-top: auto;
+
+  a {
+    display: flex;
+    gap: .4rem;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+.shopItem__link_icon {
+  display: block;
+  width: calc(18/16*1em);
+  transform: translateY(1px);
+}

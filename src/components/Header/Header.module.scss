@@ -1,0 +1,121 @@
+///////////////////////////////////////////////////////////
+//
+//   Header
+//
+///////////////////////////////////////////////////////////
+
+@charset "utf-8";
+@use "../../styles/setting/variables.scss" as *;
+@use "../../styles/foundation/mixins.scss" as *;
+@use "../../styles/foundation/functions.scss" as *;
+
+
+.header {
+  height: clamp_size(70, 100);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  height: inherit;
+}
+
+.header__logo {
+  position: relative;
+  z-index: 1;
+
+  a {
+    display: grid;
+    gap: clamp_size(5, 10);
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    font-size: clamp_size(20, 24);
+
+    img {
+      @include mq-down(md) {
+        width: clamp_size(28,32,375,768);
+        height: clamp_size(28,32,375,768);
+      }
+    }
+  }
+}
+
+.header__nav {
+  height: inherit;
+  margin-left: auto;
+  @include mq-down(md) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    // transform: translateX(-100%);
+    width: 40vw;
+    max-width: rem;
+    height: auto;
+    transition: transform 0.5s ease;
+    margin-left: 0;
+    padding-top: 5rem;
+    background-color: #fff;
+    z-index: 1;
+
+    &.is-open {
+      transform: translateX(0);
+		}
+
+		&.is-close {
+      transform: translateX(100%);
+		}
+  }
+}
+
+.header__navList {
+  display: flex;
+  gap: 2.4rem;
+  align-items: center;
+  justify-content: space-between;
+  height: inherit;
+  @include mq-down(md) {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 5rem 0;
+    justify-content: flex-start; 
+  }
+}
+
+.header__navItem {
+  a {
+    display: block;
+  }
+}
+
+.header__sideMenuBtn {
+  display: none;
+  @include mq-down(md) {
+    position: relative;
+    display: block;
+    z-index: 1;
+  }
+
+  img {
+    @include mq-down(md) {
+      width: clamp_size(28,32,375,768);
+      height: clamp_size(28,32,375,768);
+    }
+  }
+}
+
+.header__menuBtn {
+  display: none;
+  @include mq-down(md) {
+    position: relative;
+    display: block;
+    z-index: 5;
+    margin-left: auto;
+  }
+
+  img {
+    @include mq-down(md) {
+      width: clamp_size(28,32,375,768);
+      height: clamp_size(28,32,375,768);
+    }
+  }
+}

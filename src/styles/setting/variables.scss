@@ -1,0 +1,68 @@
+///////////////////////////////////////////////////////////
+//
+//   変数定義用SASS
+//
+///////////////////////////////////////////////////////////
+
+//---------------------------------------------------------
+// ブレイクポイント
+//---------------------------------------------------------
+
+$breakpoint_up: (
+  sm: 'screen and (min-width: 576px)',
+  md: 'screen and (min-width: 768px)',
+  lg: 'screen and (min-width: 992px)',
+  xl: 'screen and (min-width: 1200px)',
+  xxl: 'screen and (min-width: 1400px)'
+);
+
+$breakpoint_down: (
+  sm: 'screen and (max-width: 575.98px)',
+  md: 'screen and (max-width: 767.98px)',
+  lg: 'screen and (max-width: 991.98px)',
+  xl: 'screen and (max-width: 1199.98px)',
+  xxl: 'screen and (max-width: 1399.98px)'
+);
+
+//---------------------------------------------------------
+// カラー
+//---------------------------------------------------------
+// グレー系
+$clr_black: #333333;
+$clr_bg_gray: #F9F9F9;
+$clr_pale_gray: #E0E0E0;
+$clr_light_gray: #AAAAAA;
+$clr_gray: #818181;
+$clr_dark_gray: #666666;
+$clr_bright_gray: #626262;
+
+// 茶色系
+$clr_brown: #a1864e;
+$clr_light_brown: #FBF8F2;
+
+// 赤系
+$clr_red: #ED6D6D;
+$clr_bright_red: #D85252;
+
+// ---------------------------------------------------------
+// hover
+// ---------------------------------------------------------
+$opacity: .6;
+$transition_opacity: opacity .4s ease-in-out;
+
+//---------------------------------------------------------
+// デフォルトフォント設定
+//---------------------------------------------------------
+// フォントサイズ
+$fnt_size_default: 1.4rem;
+
+// 太さ
+$fnt_weight_default: 400;
+
+// 行間
+$fnt_lh_default: 1.6;
+
+// フォントファミリー
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap');
+$fnt_gothic: "Noto Sans JP", sans-serif;
+$fnt_mincho: "Noto Serif JP", serif;

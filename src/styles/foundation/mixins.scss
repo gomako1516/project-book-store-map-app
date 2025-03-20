@@ -1,0 +1,65 @@
+///////////////////////////////////////////////////////////
+//
+//   mixins
+//
+///////////////////////////////////////////////////////////
+
+@use "sass:math";
+@use "../setting/variables" as *;
+
+// ---------------------------------------------------------
+// media query
+// ---------------------------------------------------------
+@mixin mq-up($bp) {
+  @media #{map-get($breakpoint_up, $bp)} {
+    @content;
+  }
+}
+
+@mixin mq-down($bp) {
+  @media #{map-get($breakpoint_down, $bp)} {
+    @content;
+  }
+}
+
+// ---------------------------------------------------------
+// display
+// ---------------------------------------------------------
+@mixin display-helper($breakpoint, $display-type) {
+  .d-#{$breakpoint}-#{$display-type} {
+    @if $display-type == "none" {
+      display: block;
+      @include mq-up($breakpoint) {
+        display: none;
+      }
+    }
+    @if $display-type == "block" {
+      display: none;
+      @include mq-up($breakpoint) {
+        display: block;
+      }
+    }
+  }
+}
+
+// ---------------------------------------------------------
+//  hover
+// ---------------------------------------------------------
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// ---------------------------------------------------------
+//  linkColor
+// ---------------------------------------------------------
+@mixin linkColor($color) {
+  color: $color;
+
+  &:hover, &:active, &:focus {
+    color: $color;
+  }
+}

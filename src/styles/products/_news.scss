@@ -1,0 +1,36 @@
+///////////////////////////////////////////////////////////
+//
+//   news
+//
+///////////////////////////////////////////////////////////
+
+@use "../setting/variables" as *;
+@use "../foundation/mixins" as *;
+@use "../foundation/functions" as *;
+
+.p-newsList {
+  margin-top: 2rem;
+}
+
+.p-newsItem {
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: auto 1fr;
+  padding: 1rem 0;
+}
+
+.p-newsItem__title {
+  font-weight: 600;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.p-newsItem__link {
+  transition: $transition_opacity;
+
+  @include hover {
+    opacity: $opacity;
+  }
+}

@@ -1,0 +1,81 @@
+///////////////////////////////////////////////////////////
+//
+//   area
+//
+///////////////////////////////////////////////////////////
+
+@use "../setting/variables" as *;
+@use "../foundation/mixins" as *;
+@use "../foundation/functions" as *;
+
+.p-area {
+  margin-top: 3rem;
+}
+
+.p-areaList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+  gap: 4rem 3rem;
+  margin-top: 3rem;
+}
+
+.p-areaItem {
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #fff;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, .1);
+  border-radius: 1rem;
+}
+
+.p-areaItem__icon {
+  justify-self: center;
+}
+
+.p-areaItem__name {
+  font-size: clamp_size(15, 18);
+  font-weight: 600;
+}
+
+.p-areaItem__links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+
+  a {
+    position: relative;
+    padding-left: 1.2em;
+    transition: $transition_opacity;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      content: "";
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    &.map {
+      &::before {
+        background-image: url(../../../public/img/common/icon_map.svg);
+      }
+    }
+
+    &.list {
+      &::before {
+        background-image: url(../../../public/img/common/icon_list.svg);
+      }
+    }
+
+    @include hover {
+      opacity: $opacity;
+    }
+  }
+}

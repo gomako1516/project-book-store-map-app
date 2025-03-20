@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+///////////////////////////////////////////////////////////
+// 出力用SCSS
+///////////////////////////////////////////////////////////
+
+// css reset
+@use 'foundation/normalize';
+@use 'foundation/base';
+
+// utilities
+@use 'utility/display';
+
+// components
+@use 'component/btn';
+@use 'component/select';
+@use 'component/input';
+@use 'component/heading';
+
+// products
+@use 'products/news';
+@use 'products/area';
+@use 'products/error';
+@use 'products/preparation';
+
+// layout
+@use 'layout/wrapper';
+@use 'layout/main';
+@use 'layout/container';
+@use 'layout/section';

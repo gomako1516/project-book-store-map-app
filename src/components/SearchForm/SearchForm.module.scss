@@ -1,0 +1,93 @@
+///////////////////////////////////////////////////////////
+//
+//   SearchForm
+//
+///////////////////////////////////////////////////////////
+
+@charset "utf-8";
+@use "../../styles/setting/variables.scss" as *;
+@use "../../styles/foundation/mixins.scss" as *;
+@use "../../styles/foundation/functions.scss" as *;
+
+.search {
+  padding: clamp_size(30, 40) clamp_size(15, 50);
+  border-radius: 1rem;
+  background-color: $clr_light_brown;
+}
+
+.search__inner {
+  display: grid;
+  gap: clamp_size(20, 30) 2rem;
+  grid-template-areas:
+    "prefecture keyword"
+    "tag tag"
+    "btn btn";
+  @include mq-down(md) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "prefecture keyword"
+      "tag tag"
+      "btn btn";
+  }
+  @include mq-down(sm) {
+    grid-template-columns: auto;
+    grid-template-areas:
+      "prefecture"
+      "keyword"
+      "tag"
+      "btn";
+  }
+}
+
+.search__block {
+  display: grid;
+  gap: 1rem;
+
+  &:nth-child(1){
+    grid-area: prefecture;
+  }
+
+  &:nth-child(2){
+    grid-area: keyword;
+  }
+
+  &:nth-child(3){
+    grid-area: tag;
+  }
+  
+  &:nth-child(4){
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    grid-area: btn;
+  }
+}
+
+.search__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.search__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.search__tag {
+  input {
+    &:checked + label {
+      color: $clr_brown;
+    }
+  }
+
+  label {
+    cursor: pointer;
+    
+    &::before {
+      content: "#";
+      font-size: inherit;
+      color: inherit;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+///////////////////////////////////////////////////////////
+// btn
+///////////////////////////////////////////////////////////
+
+@use "../setting/variables" as *;
+@use "../foundation/mixins" as *;
+@use "../foundation/functions" as *;
+
+.c-btn {
+  position: relative;
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  max-width: 24rem;
+  padding: 0.75em 1em;
+  background-color: $clr_brown;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+  @include linkColor(#fff);
+  @include hover {
+    color: $clr_brown;
+    border-color: $clr_brown;
+    background-color: #fff;
+  }
+
+  > span {
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+  }
+
+  &--border {
+    color: $clr_brown;
+    background-color: #fff;
+    border: 1px solid $clr_brown;
+
+    &:active,
+    &:focus {
+      color: $clr_brown;
+      background-color: #fff;
+    }
+
+    @include hover {
+      color: #fff;
+      background-color: $clr_brown;
+    }
+  }
+}

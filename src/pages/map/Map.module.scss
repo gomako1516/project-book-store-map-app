@@ -1,0 +1,66 @@
+///////////////////////////////////////////////////////////
+//
+//   Map
+//
+///////////////////////////////////////////////////////////
+
+@charset "utf-8";
+@use "../../styles/setting/variables.scss" as *;
+@use "../../styles/foundation/mixins.scss" as *;
+@use "../../styles/foundation/functions.scss" as *;
+
+.map {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: clamp_size(20,30,768,1440);
+}
+
+.shopResult {
+  font-weight: 600;
+}
+
+.map__info {
+  max-width: 24rem;
+  padding-left: 6px;
+}
+
+.map__info_thumb {
+  img {
+    width: 100%;
+    aspect-ratio: 1000/500;
+    object-fit: cover;
+  }
+}
+
+.map__info_name {
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.map__info_address {
+  margin-top: .2rem;
+}
+
+.map__info_link {
+  text-align: right;
+  margin-top: .8rem;
+
+  a {
+    position: relative;
+    padding-right: calc(20/16*1em);
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      content: "";
+      display: block;
+      width: calc(20/16*1em);
+      height: calc(20/16*1em);
+      background-image: url("../../../public/img/common/icon_arrow_r.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+}

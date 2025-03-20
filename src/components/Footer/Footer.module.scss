@@ -1,0 +1,82 @@
+///////////////////////////////////////////////////////////
+//
+//   Footer
+//
+///////////////////////////////////////////////////////////
+
+@charset "utf-8";
+@use "../../styles/setting/variables.scss" as *;
+@use "../../styles/foundation/mixins.scss" as *;
+@use "../../styles/foundation/functions.scss" as *;
+
+.footer {
+  color: #fff;
+  padding: 2rem 0;
+  background-color: $clr_brown;
+  @include mq-down(md) {
+    padding: 4rem 0 1rem;
+  }
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: inherit;
+  @include mq-down(lg) {
+    gap: 2.4rem;
+    flex-direction: column;
+  }
+}
+
+.footer__logo {
+  a {
+    display: grid;
+    gap: 1rem;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    font-size: 1.8rem;
+    color: #fff;
+  }
+
+  img {
+    @include mq-down(md) {
+      width: clamp_size(28,32,375,768);
+      height: clamp_size(28,32,375,768);
+    }
+  }
+}
+
+.footer__nav {
+  display: flex;
+  gap: 2.4rem;
+  align-items: center;
+  height: inherit;
+  @include mq-down(lg) {
+    flex-direction: column-reverse;
+  }
+}
+
+.footer__navList {
+  display: flex;
+  gap: 2.4rem;
+  align-items: center;
+  height: inherit;
+}
+
+.footer__navItem {
+  a {
+    color: #fff;
+  }
+}
+
+.footer__socialList {
+  display: flex;
+  gap: 1.2rem; 
+  align-items: center;
+  height: inherit;
+}
+
+.footer__copyright {
+
+}

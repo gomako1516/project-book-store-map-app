@@ -1,0 +1,40 @@
+
+///////////////////////////////////////////////////////////
+// select
+///////////////////////////////////////////////////////////
+
+@use "../setting/variables" as *;
+@use "../foundation/mixins" as *;
+@use "../foundation/functions" as *;
+
+.c-select {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    display: block;
+    width: 1.4rem;
+    height: .7rem;
+    mask-image: url("../../../public/img/common/icon_arrow_b.svg");
+    mask-repeat: no-repeat;
+    mask-size: cover;
+    background-color: $clr_black;
+  }
+
+  select {
+    width: 100%;
+    height: clamp_size(40,50);
+    padding: 0.6875em 3.4em 0.6875em 1.875em;
+    font-size: clamp_size(13,16);
+    font-family: $fnt_gothic;
+    font-weight: 500;
+    color: $clr_black;
+    background-color: #fff;
+    border: 1px solid $clr_black;
+    border-radius: 5px;
+  }
+}

@@ -1,0 +1,22 @@
+///////////////////////////////////////////////////////////
+//
+//   main
+//
+///////////////////////////////////////////////////////////
+
+@charset "utf-8";
+@use "../setting/variables" as *;
+@use "../foundation/mixins" as *;
+@use "../foundation/functions" as *;
+
+.l-main {
+  position: relative;
+  display: grid;
+  gap: clamp_size(20,30,768,1440);
+  grid-template-columns: clamp_size(100,120,768,1440) 1fr;
+  padding-bottom: clamp_size(40, 70);
+  @include mq-down(md) {
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr;
+  }
+}

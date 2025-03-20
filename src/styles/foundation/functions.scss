@@ -1,0 +1,18 @@
+///////////////////////////////////////////////////////////
+//
+//   functions
+//
+///////////////////////////////////////////////////////////
+
+@use "sass:math";
+@use "../setting/variables" as *;
+
+// ---------------------------------------------------------
+// clamp
+// ---------------------------------------------------------
+@function clamp_size($min, $max, $width_small: 375, $width_large: 1280) {
+  $preferred_vw_base: math.div(($max - $min), ($width_large - $width_small));
+  $preferred_vw: ($preferred_vw_base * 100) * 1vw;
+  $preferred_rem: ($width_small * -1 * $preferred_vw_base + $min) * .1rem;
+  @return clamp(#{$min * .1rem}, #{$preferred_rem} + #{$preferred_vw}, #{$max * .1rem});
+};

@@ -1,0 +1,47 @@
+
+///////////////////////////////////////////////////////////
+//
+//   base
+//
+///////////////////////////////////////////////////////////
+
+@use "../setting/variables" as *;
+@use "mixins" as *;
+@use "functions" as *;
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: $fnt_size_default;
+  font-weight: $fnt_weight_default;
+  font-family: $fnt_mincho;
+  line-height: $fnt_lh_default;
+  color: $clr_black;
+}
+
+p,
+a,
+ul,
+ol {
+  font-size: clamp_size(14, 17);
+}
+
+a {
+  color: $clr_black;
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $clr_black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}

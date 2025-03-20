@@ -1,0 +1,38 @@
+
+///////////////////////////////////////////////////////////
+// input
+///////////////////////////////////////////////////////////
+
+@use "../setting/variables" as *;
+@use "../foundation/mixins" as *;
+@use "../foundation/functions" as *;
+
+.c-input {
+  width: 100%;
+  height: clamp_size(40,50);
+  font-size: clamp_size(13,16);
+  font-family: $fnt_gothic;
+  font-weight: 500;
+  padding: .87em 1.7em;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid $clr_black;
+  box-sizing: border-box;
+  @include mq-down(md) {
+    padding: .7em 1em;
+  }
+
+  &:focus {
+    border-color: $clr_brown;
+  }
+
+  &::placeholder {
+    color: #D7D7D7;
+    font-family: $fnt_gothic;
+    font-weight: 400;
+  }
+
+  &--textarea {
+    min-height: 19.6rem;
+  }
+}
