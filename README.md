@@ -1,40 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 本屋検索マップ
+## 概要
+### URL  
+  https://book-store-map-app.vercel.app/
+### 概要  
+独立系書店（個人が運営している書店）を検索できるマップアプリ。  
+microCMSに登録した書店情報を取得し、GoogleMap上に表示・検索できる仕様になっています。  
+※現状、仮の本屋情報のみ登録しています（大阪・京都・奈良で検索可能）。
+### 今後の実装予定
+- 店舗登録
+- Firebaseを使用したマイページ機能
+- お気に入り機能
+- アプリの解説ページなどの実装 etc...
 
-## Getting Started
+## ワイヤーフレーム
+[https://www.figma.com/design/aFO8NywrOkK9uN4GI04q7l/本屋マップWF-(新)?node-id=0-1&t=PqSg2bOlJI9VJ4JC-0](https://www.figma.com/design/aFO8NywrOkK9uN4GI04q7l/%E6%9C%AC%E5%B1%8B%E3%83%9E%E3%83%83%E3%83%97WF-(%E6%96%B0)?node-id=0-1&t=PqSg2bOlJI9VJ4JC-0)
 
-First, run the development server:
+## 技術選定
+- フロントエンド
+  - TypeScript
+  - Next.js
+  - Google Map JavaScript API
+- バックエンド（マイページ）※未実装
+  - Firebase（Cloud Firestore・Firebase Authentication）
+- CMS
+ - micro CMS
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## システム構成図
+<img width="1136" alt="システム構成図" src="https://github.com/user-attachments/assets/e94c74cc-74da-4787-a96a-349139da0939" />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## DB設計
+- **ユーザー（users）**
+  - ユーザーID（user_id）_strings
+  - ユーザー名（user_name）_strings
+  - 作成日（user_create_at）_timestamp
+  - 削除日（user_delete_at）_timestamp
+  - 更新日（user_update_at）_timestamp
+  - お気に入り（user_favorite_stores）_array
+    - 店舗ID（user_favorite_store_id）_strings
+    - 更新日（user_favorite_update_at）_timestamp
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+[ER図（Drawio）](https://drive.google.com/file/d/1gsL_66kvfxh05Nvkc7-HfctOtQYG34Fv/view)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 開発メモ
+### こだわった点
+本屋情報を管理しやすいように、microCMSの投稿機能をデータベースとして活用。  
+microCMSからデータをfetchして、GoogleMapsAPI ジオコーディングで経度緯度を取得。  
+GoogleMapsAPIで地図上に本屋情報を表示させていいます。
+### 苦労した点
+GoogleMapsAPIに表示させる本屋の検索機能の実装には苦労しました。  
+都道府県、タグ、フリーワードの検索項目を設置し、検索内容をもとにフィルタリング。  
+結果をもとにMAP上にピンを立てる処理を実装しました。
